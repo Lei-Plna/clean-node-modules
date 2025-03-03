@@ -1,6 +1,6 @@
 {
   "name": "clean-node-modules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A command-line tool to recursively delete all node_modules folders in the current directory and subdirectories.",
   "main": "index.js",
   "bin": {
