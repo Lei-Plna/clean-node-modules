@@ -1,18 +1,35 @@
 {
   "name": "clean-node-modules",
   "version": "1.0.0",
-  "description": "",
+  "description": "A command-line tool to recursively delete all node_modules folders in the current directory and subdirectories.",
   "main": "index.js",
   "bin": {
     "clean-modules": "./clean-node-modules.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "node",
+    "node_modules",
+    "cleanup",
+    "cli",
+    "npm"
+  ],
+  "author": "Dplei <peiplna12@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "cli-progress": "^3.12.0",
     "glob": "^11.0.1",
     "kleur": "^4.1.5",
     "rimraf": "^6.0.1"
-  }
+  },
+  "scripts": {
+    "start": "node clean-node-modules.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lei-Plna/clean-node-modules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lei-Plna/clean-node-modules/issues"
+  },
+  "homepage": "https://github.com/Lei-Plna/clean-node-modules#readme"
 }
