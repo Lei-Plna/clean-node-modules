@@ -1,0 +1,18 @@
+{
+  "name": "clean-node-modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "clean-modules": "./clean-node-modules.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-progress": "^3.12.0",
+    "glob": "^11.0.1",
+    "kleur": "^4.1.5",
+    "rimraf": "^6.0.1"
+  }
+}
