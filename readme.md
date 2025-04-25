@@ -15,11 +15,11 @@
 ### 使用 npm
 
 ```bash
-npm install -g clean-node-modules
+npm install -g clean-node-modules-cli
 ```
 
-在安装完成后，你可以在命令行中使用 `clean-node-modules` 命令。
+在安装完成后，你可以在命令行中使用 `clean-modules` 命令。
 
 ```bash
-clean-node-modules
+clean-modules
 ```
