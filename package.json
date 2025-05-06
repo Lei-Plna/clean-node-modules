@@ -2,9 +2,16 @@
   "name": "clean-node-modules-cli",
   "version": "1.0.2",
   "description": "A command-line tool to recursively delete all node_modules folders in the current directory and subdirectories.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "bin": {
-    "clean-modules": "./clean-node-modules.js"
+    "clean-modules": "dist/index.js"
   },
   "keywords": [
     "node",
@@ -19,10 +26,21 @@
     "cli-progress": "^3.12.0",
     "glob": "^11.0.1",
     "kleur": "^4.1.5",
-    "rimraf": "^6.0.1"
+    "log-update": "^6.1.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.6",
+    "@types/node": "^22.15.11",
+    "madge": "^8.0.0"
   },
   "scripts": {
-    "start": "node clean-node-modules.js"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "dev": "ts-node src/index.ts",
+    "devlink": "pnpm link --global --dir ."
   },
   "repository": {
     "type": "git",
@@ -31,5 +49,6 @@
   "bugs": {
     "url": "https://github.com/Lei-Plna/clean-node-modules/issues"
   },
-  "homepage": "https://github.com/Lei-Plna/clean-node-modules#readme"
+  "homepage": "https://github.com/Lei-Plna/clean-node-modules#readme",
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
 }
