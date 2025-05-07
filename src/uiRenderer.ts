@@ -13,9 +13,11 @@ export function startUI(taskManager: TaskManager) {
   taskManager.onUpdate((state: TaskState) => {
     const lines: string[] = [];
 
+    const barSize = 30;
+
     for (const [, task] of state.activeTasks) {
-      const filled = Math.round((20 * task.progress) / 100);
-      const empty = 30 - filled;
+      const filled = Math.round((barSize * task.progress) / 100);
+      const empty = barSize - filled;
       const bar = '█'.repeat(filled) + '░'.repeat(empty);
       lines.push(
         `${kleur.cyan(task.sourceName)} ${bar} ${task.progress.toFixed(0)}%`

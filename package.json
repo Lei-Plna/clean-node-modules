@@ -39,8 +39,9 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "dev": "ts-node src/index.ts",
-    "devlink": "pnpm link --global --dir ."
+    "dev": "npm run build && node dist/index.js",
+    "devlink": "pnpm link --global --dir .",
+    "release": "npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
