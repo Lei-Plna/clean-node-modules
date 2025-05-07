@@ -45,7 +45,7 @@ export class TaskManager {
     this.listeners.forEach((cb) => cb(state));
   }
 
-  async run(): Promise<void> {
+  public async run(): Promise<void> {
     return new Promise((resolve) => {
       this.resolveRun = resolve;
       const initial = Math.min(this.maxWorkers, this.total);
@@ -128,5 +128,9 @@ export class TaskManager {
     this.activeCount--;
     this.activeTasks.delete(id);
     this.emitUpdate();
+  }
+
+  public getTotal() {
+    return this.total;
   }
 }

@@ -27,7 +27,7 @@ function simulateProgress(
 parentPort?.on('message', ({ directory }: NodeModulesEntry) => {
   try {
     const maxFakeProgress = 99;
-    const fakeDuration = 15000; // 10s 模拟假进度
+    const fakeDuration = 15000; // 15s 模拟假进度
 
     // 1. 并行启动模拟进度
     simulateProgress(maxFakeProgress, fakeDuration, (progress) => {
