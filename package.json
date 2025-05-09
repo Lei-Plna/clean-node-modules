@@ -23,7 +23,6 @@
   "author": "Dplei <peiplna12@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "cli-progress": "^3.12.0",
     "glob": "^11.0.1",
     "kleur": "^4.1.5",
     "log-update": "^6.1.0",
@@ -34,12 +33,13 @@
   "devDependencies": {
     "@types/cli-progress": "^3.11.6",
     "@types/node": "^22.15.11",
-    "madge": "^8.0.0"
+    "madge": "^8.0.0",
+    "tsup": "^8.4.0"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "prepare": "npm run build",
-    "dev": "npm run build && node dist/index.js",
+    "dev": "tsup && node ./dist/index.js",
     "devlink": "pnpm link --global --dir .",
     "release": "npm version patch && npm publish"
   },
