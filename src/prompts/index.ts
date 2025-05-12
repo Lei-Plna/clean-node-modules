@@ -19,7 +19,7 @@ export async function selectLanguage(): Promise<string> {
   const { lang } = await safePrompt<{ lang: string }>({
     type: 'select',
     name: 'lang',
-    message: '请选择语言(Select language)',
+    message: '请选择语言(Select Language)',
     choices: [
       { title: '中文', value: 'zh' },
       { title: 'English', value: 'en' }
