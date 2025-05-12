@@ -3,6 +3,9 @@ import { TaskManager } from './taskManager';
 import { startUI } from './uiRenderer';
 import { getNodeModulesDirs } from './utils/getNodeModuleDirs';
 import { getRecommendedWorkerCount } from './utils/getWorkerCount';
+import prompts from 'prompts';
+import { I18n } from './i18n';
+import path from 'path';
 
 async function main() {
   const dirs = getNodeModulesDirs();
@@ -10,6 +13,29 @@ async function main() {
     console.log(kleur.red('没有找到 node_modules 文件夹'));
     process.exit(0);
   }
+
+  const { lang } = await prompts({
+    type: 'select',
+    name: 'lang',
+    message: '请选择语言(Select language)',
+    choices: [
+      { title: '中文', value: 'zh' },
+      { title: 'English', value: 'en' }
+    ]
+  });
+
+  console.log(kleur.yellow(`getResult: ${lang}`));
+
+  const i18n = new I18n(
+    {
+      directory: path.resolve(__dirname, './locales'),
+      defaultLocale: lang,
+      updateMissing: true
+    },
+    false
+  );
+
+  await i18n.init();
 
   const recommended = getRecommendedWorkerCount();
 

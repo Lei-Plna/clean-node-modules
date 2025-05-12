@@ -1,0 +1,4 @@
+{
+  "search_node_modules_prompt": "正在搜索项目下所有的 node_modules，请选择要删除的项",
+  "select_delete_mode": "请选择删除方式：全部删除 或 按需删除"
+}

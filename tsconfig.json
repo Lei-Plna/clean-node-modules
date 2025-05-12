@@ -6,15 +6,16 @@
     "moduleResolution": "node",
     "types": ["node"],
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "declaration": false,
     "sourceMap": true,
     "emitDeclarationOnly": false,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "typeRoots": ["types", "node_modules/@types"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "types/**/*"]
 }

@@ -1,0 +1,10 @@
+{
+  "select_delete_mode": {
+    "zh": "请选择删除方式：全部删除 或 按需删除",
+    "en": "Please choose a deletion mode: delete all or delete selectively"
+  },
+  "search_node_modules_prompt": {
+    "zh": "正在搜索项目下所有的 node_modules，请选择要删除的项",
+    "en": "Searching all node_modules in the project; please select the items you want to delete"
+  }
+}

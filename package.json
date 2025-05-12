@@ -13,6 +13,15 @@
   "bin": {
     "clean-modules": "dist/index.js"
   },
+  "scripts": {
+    "build": "tsup",
+    "prepare": "npm run build",
+    "dev": "tsup && node ./dist/index.js",
+    "devlink": "npm run link --global --dir .",
+    "release": "npm version patch && npm publish",
+    "build:i18n": "tsup --config tsup.scripts.config.ts",
+    "sync:i18n": "npm run build:i18n && node scripts-dist/i18n-sync.js"
+  },
   "keywords": [
     "node",
     "node_modules",
@@ -24,24 +33,21 @@
   "license": "MIT",
   "dependencies": {
     "glob": "^11.0.1",
+    "i18next": "^25.1.2",
+    "i18next-fs-backend": "^2.6.0",
     "kleur": "^4.1.5",
     "log-update": "^6.1.0",
-    "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "prompts": "^2.4.2",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
-    "@types/cli-progress": "^3.11.6",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.15.11",
-    "madge": "^8.0.0",
-    "tsup": "^8.4.0"
-  },
-  "scripts": {
-    "build": "tsup",
-    "prepare": "npm run build",
-    "dev": "tsup && node ./dist/index.js",
-    "devlink": "pnpm link --global --dir .",
-    "release": "npm version patch && npm publish"
+    "@types/prompts": "^2.4.9",
+    "fs-extra": "^11.3.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
   },
   "repository": {
     "type": "git",

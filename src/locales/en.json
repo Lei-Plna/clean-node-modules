@@ -1,0 +1,4 @@
+{
+  "search_node_modules_prompt": "Searching all node_modules in the project; please select the items you want to delete",
+  "select_delete_mode": "Please choose a deletion mode: delete all or delete selectively"
+}
