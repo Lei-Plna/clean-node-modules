@@ -2,12 +2,16 @@ import fs from 'fs/promises';
 import kleur from 'kleur';
 import path from 'path';
 
+/**
+ * 此处因为要使用tsup进行打包
+ * 为了保证路径访问的正确 这里使用了项目根目录
+ */
 const ROOT = process.cwd();
 const SOURCE_FILE = path.join(ROOT, 'src', 'messages.json');
 const LOCALES_DIR = path.join(ROOT, 'src', 'locales');
 
 /**
- * 消息定义示例 (messages.json):
+ * 示例 (messages.json):
  * {
  *   "greeting": { "zh": "你好", "en": "Hello" },
  *   "farewell": { "zh": "再见", "en": "Goodbye" }
@@ -17,9 +21,6 @@ interface Messages {
   [key: string]: Record<string, string>;
 }
 
-/**
- * 从 JSON 文件中读取并解析消息映射
- */
 async function loadMessages(): Promise<Messages> {
   const raw = await fs.readFile(SOURCE_FILE, 'utf-8');
   return JSON.parse(raw) as Messages;

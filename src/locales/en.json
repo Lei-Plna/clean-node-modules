@@ -1,4 +1,10 @@
 {
+  "delete_all": "Delete all",
+  "delete_on_demand": "Delete selectively",
+  "enter_worker_count_prompt": "Please enter the number of worker threads to start [{{min}}-{{max}}] (press Enter to use the default: {{default}})",
+  "invalid_number": "Please enter a valid number",
+  "number_out_of_range": "Please enter a number between {{min}} and {{max}}",
   "search_node_modules_prompt": "Searching all node_modules in the project; please select the items you want to delete",
-  "select_delete_mode": "Please choose a deletion mode: delete all or delete selectively"
+  "select_delete_mode": "Please choose a deletion mode: delete all or delete selectively",
+  "select_dirs_to_delete": "Please select the directories to delete"
 }

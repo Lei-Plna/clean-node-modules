@@ -1,4 +1,10 @@
 {
+  "delete_all": "全部删除",
+  "delete_on_demand": "按需删除",
+  "enter_worker_count_prompt": "请输入开启的 Worker 线程数量 [{{min}}-{{max}}]（直接回车使用默认值 {{default}}）",
+  "invalid_number": "请输入有效的数字",
+  "number_out_of_range": "请输入一个介于 {{min}} 到 {{max}} 之间的数字",
   "search_node_modules_prompt": "正在搜索项目下所有的 node_modules，请选择要删除的项",
-  "select_delete_mode": "请选择删除方式：全部删除 或 按需删除"
+  "select_delete_mode": "请选择删除方式：全部删除 或 按需删除",
+  "select_dirs_to_delete": "请选择需要删除的目录"
 }

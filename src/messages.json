@@ -6,5 +6,29 @@
   "search_node_modules_prompt": {
     "zh": "正在搜索项目下所有的 node_modules，请选择要删除的项",
     "en": "Searching all node_modules in the project; please select the items you want to delete"
+  },
+  "delete_all": {
+    "zh": "全部删除",
+    "en": "Delete all"
+  },
+  "delete_on_demand": {
+    "zh": "按需删除",
+    "en": "Delete selectively"
+  },
+  "enter_worker_count_prompt": {
+    "zh": "请输入开启的 Worker 线程数量 [{{min}}-{{max}}]（直接回车使用默认值 {{default}}）",
+    "en": "Please enter the number of worker threads to start [{{min}}-{{max}}] (press Enter to use the default: {{default}})"
+  },
+  "invalid_number": {
+    "zh": "请输入有效的数字",
+    "en": "Please enter a valid number"
+  },
+  "number_out_of_range": {
+    "zh": "请输入一个介于 {{min}} 到 {{max}} 之间的数字",
+    "en": "Please enter a number between {{min}} and {{max}}"
+  },
+  "select_dirs_to_delete": {
+    "zh": "请选择需要删除的目录",
+    "en": "Please select the directories to delete"
   }
 }

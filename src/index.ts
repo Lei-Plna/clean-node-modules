@@ -1,11 +1,11 @@
 import kleur from 'kleur';
+import path from 'path';
+import prompts from 'prompts';
+import { I18n } from './i18n';
 import { TaskManager } from './taskManager';
 import { startUI } from './uiRenderer';
 import { getNodeModulesDirs } from './utils/getNodeModuleDirs';
-import { getRecommendedWorkerCount } from './utils/getWorkerCount';
-import prompts from 'prompts';
-import { I18n } from './i18n';
-import path from 'path';
+import os from 'os';
 
 async function main() {
   const dirs = getNodeModulesDirs();
@@ -24,8 +24,6 @@ async function main() {
     ]
   });
 
-  console.log(kleur.yellow(`getResult: ${lang}`));
-
   const i18n = new I18n(
     {
       directory: path.resolve(__dirname, './locales'),
@@ -37,12 +35,71 @@ async function main() {
 
   await i18n.init();
 
-  const recommended = getRecommendedWorkerCount();
+  const cores = os.cpus().length;
 
-  console.log(kleur.green(`推荐的线程为: ${recommended} 条..`));
+  const recommended = Math.max(1, Math.floor(cores / 2));
+  const min = 1;
+
+  const { count } = await prompts({
+    type: 'text',
+    name: 'count',
+    message: i18n.translate('enter_worker_count_prompt', {
+      min: min,
+      max: cores,
+      default: recommended
+    }),
+    initial: String(recommended),
+    validate: (value) => {
+      const num = value === '' ? recommended : Number(value);
+      if (isNaN(num)) return i18n.translate('invalid_number');
+      if (num < min || num > cores)
+        return i18n.translate('number_out_of_range', {
+          min: min,
+          max: cores
+        });
+      return true;
+    },
+    format: (value) => {
+      const num = value === '' ? recommended : Number(value);
+      return isNaN(num) ? recommended : num;
+    }
+  });
+
+  const { mode } = await prompts({
+    type: 'select',
+    name: 'mode',
+    message: i18n.translate('select_delete_mode'),
+    choices: [
+      {
+        title: i18n.translate('delete_all'),
+        value: 'all'
+      },
+      {
+        title: i18n.translate('delete_on_demand'),
+        value: 'part'
+      }
+    ]
+  });
+
+  const executedDirs =
+    mode === 'all'
+      ? dirs
+      : (
+          await prompts({
+            type: 'multiselect',
+            name: 'dirs',
+            message: i18n.translate('select_dirs_to_delete'),
+            choices: dirs.map((dir) => {
+              return {
+                value: dir,
+                title: `${dir.parentName} `
+              };
+            })
+          })
+        ).dirs;
 
   // 并发数可按需配置
-  const manager = new TaskManager(dirs, recommended);
+  const manager = new TaskManager(executedDirs, count);
 
   // 先绑定 UI，再启动任务
   startUI(manager);

@@ -8,7 +8,7 @@ import { TaskManager, TaskState } from './taskManager';
  * - 仅展示并发数的活跃任务进度条
  */
 export function startUI(taskManager: TaskManager) {
-  console.log(kleur.yellow('📦 开始删除所有 node_modules 文件夹...'));
+  console.log(kleur.yellow('📦 开始删除所有 node_modules 文件夹...\n'));
 
   taskManager.onUpdate((state: TaskState) => {
     const lines: string[] = [];
