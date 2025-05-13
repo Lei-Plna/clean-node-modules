@@ -15,7 +15,7 @@
 ### 使用 npm
 
 ```bash
-npm install -g clean-node-modules-cli
+npm install -g @dplei/clean-node-modules
 ```
 
 在安装完成后，你可以在命令行中使用 `clean-modules` 命令。

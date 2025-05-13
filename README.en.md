@@ -13,9 +13,9 @@ A command-line tool to **recursively delete** all `node_modules` folders in the 
 Install globally via npm or yarn:
 
 ```bash
-npm install -g clean-node-modules-cli
+npm install -g @dplei/clean-node-modules
 # or
-yarn global add clean-node-modules-cli
+yarn global add @dplei/clean-node-modules
 ```
 
 After installation, run:
