@@ -32,6 +32,7 @@ jobs:
         run: pnpm config get registry
 
       - name: Build
+        if: false
         run: npm run build
 
       - name: Debug npm registry for npm
@@ -42,6 +43,9 @@ jobs:
         run: npm publish --access public --registry=https://registry.npmjs.org/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Set npm registry to GitHub Packages
+        run: npm config set registry https://npm.pkg.github.com/
 
       - name: Debug npm registry for GitHub Packages
         run: npm config get registry
