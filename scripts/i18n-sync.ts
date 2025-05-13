@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import kleur from 'kleur';
+import chalk from 'chalk';
 import path from 'path';
 
 /**
@@ -55,7 +55,7 @@ async function syncLocales() {
       existing = JSON.parse(raw);
     } catch {
       // 文件不存在或解析失败，忽略并新建
-      console.warn(kleur.red(`⚠️ 读取 ${localeFile} 失败，创建新文件`));
+      console.warn(chalk.red(`⚠️ 读取 ${localeFile} 失败，创建新文件`));
     }
 
     // 合并并保持已有值
@@ -75,7 +75,7 @@ async function syncLocales() {
       JSON.stringify(sorted, null, 2) + '\n',
       'utf-8'
     );
-    console.log(kleur.green(`✅ 写入 ${localeFile}`));
+    console.log(chalk.green(`✅ 写入 ${localeFile}`));
   }
 }
 

@@ -1,4 +1,4 @@
-import kleur from 'kleur';
+import chalk from 'chalk';
 import { TaskManager } from './taskManager';
 import { startUI } from './uiRenderer';
 import {
@@ -16,7 +16,7 @@ import { initI18n } from './i18n';
 async function main() {
   const dirs = getNodeModulesDirs();
   if (dirs.length === 0) {
-    console.log(kleur.red('没有找到 node_modules 文件夹'));
+    console.log(chalk.red('没有找到 node_modules 文件夹'));
     process.exit(0);
   }
 
@@ -37,10 +37,10 @@ async function main() {
   startUI(manager);
   await manager.run();
 
-  console.log('\n' + kleur.green('✅ 所有删除任务已完成'));
+  console.log('\n' + chalk.green('✅ 所有删除任务已完成'));
 }
 
 main().catch((err) => {
-  console.error(kleur.red('出错了：'), err);
+  console.error(chalk.red('出错了：'), err);
   process.exit(1);
 });

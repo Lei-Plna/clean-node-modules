@@ -1,28 +1,17 @@
-import prompts, { PromptObject } from 'prompts';
+import os from 'os';
 import { I18n } from '../i18n/i18n';
 import { NodeModulesEntry } from '../utils/getNodeModuleDirs';
-import os from 'os';
-
-function cleanupAndExit(code = 1): never {
-  process.exit(code);
-}
-
-export async function safePrompt<T>(
-  question: PromptObject | PromptObject[]
-): Promise<T> {
-  return prompts(question, {
-    onCancel: () => cleanupAndExit(130)
-  }) as Promise<T>;
-}
+import { safePrompt, withRandomColor } from './utils';
+import chalk from 'chalk';
 
 export async function selectLanguage(): Promise<string> {
   const { lang } = await safePrompt<{ lang: string }>({
     type: 'select',
     name: 'lang',
-    message: '请选择语言(Select Language)',
+    message: '请选择语言 (Select Language)',
     choices: [
-      { title: '中文', value: 'zh' },
-      { title: 'English', value: 'en' }
+      { title: chalk.green('中文'), value: 'zh' },
+      { title: chalk.yellow('English'), value: 'en' }
     ]
   });
   return lang;
@@ -62,8 +51,8 @@ export async function selectDeleteMode(i18n: I18n): Promise<'all' | 'part'> {
     name: 'mode',
     message: i18n.translate('select_delete_mode'),
     choices: [
-      { title: i18n.translate('delete_all'), value: 'all' },
-      { title: i18n.translate('delete_on_demand'), value: 'part' }
+      { title: chalk.green(i18n.translate('delete_all')), value: 'all' },
+      { title: chalk.yellow(i18n.translate('delete_on_demand')), value: 'part' }
     ]
   });
   return mode;
@@ -78,7 +67,7 @@ export async function selectDirs(
     name: 'dirs',
     message: i18n.translate('select_dirs_to_delete'),
     choices: dirs.map((dir) => ({
-      title: dir.parentName,
+      title: withRandomColor(dir.parentName),
       value: dir
     }))
   });

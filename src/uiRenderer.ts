@@ -1,4 +1,4 @@
-import kleur from 'kleur';
+import chalk from 'chalk';
 import logUpdate from 'log-update';
 import { TaskManager, TaskState } from './taskManager';
 
@@ -8,7 +8,7 @@ import { TaskManager, TaskState } from './taskManager';
  * - 仅展示并发数的活跃任务进度条
  */
 export function startUI(taskManager: TaskManager) {
-  console.log(kleur.yellow('📦 开始删除所有 node_modules 文件夹...\n'));
+  console.log(chalk.yellow('📦 开始删除所有 node_modules 文件夹...\n'));
 
   taskManager.onUpdate((state: TaskState) => {
     const lines: string[] = [];
@@ -20,13 +20,13 @@ export function startUI(taskManager: TaskManager) {
       const empty = barSize - filled;
       const bar = '█'.repeat(filled) + '░'.repeat(empty);
       lines.push(
-        `${kleur.cyan(task.sourceName)} ${bar} ${task.progress.toFixed(0)}%`
+        `${chalk.cyan(task.sourceName)} ${bar} ${task.progress.toFixed(0)}%`
       );
     }
 
     lines.push('');
     // 底部总进度文本
-    lines.push(kleur.green(`总进度: ${state.completed}/${state.total} 已完成`));
+    lines.push(chalk.green(`总进度: ${state.completed}/${state.total} 已完成`));
 
     logUpdate(lines.join('\n'));
   });

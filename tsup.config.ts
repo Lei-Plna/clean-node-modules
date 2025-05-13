@@ -1,6 +1,6 @@
 import { defineConfig } from 'tsup';
 import extra from 'fs-extra';
-import klur from 'kleur';
+import chalk from 'chalk';
 
 export default defineConfig({
   entry: ['src/**/*.ts'],
@@ -13,6 +13,6 @@ export default defineConfig({
   bundle: false,
   onSuccess: async () => {
     extra.copySync('src/locales', 'dist/locales');
-    console.log(klur.green('✅ locales copied to dist/locales'));
+    console.log(chalk.green('✅ locales copied to dist/locales'));
   }
 });
