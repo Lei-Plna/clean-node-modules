@@ -19,7 +19,7 @@
     "prepare": "npm run build",
     "dev": "tsup && node ./dist/index.js",
     "devlink": "pnpm link --global --dir .",
-    "release": "npm version patch && npm publish",
+    "release": "npm version patch && git push && git push origin $(git describe --tags)",
     "build:i18n": "tsup --config tsup.scripts.config.ts",
     "sync:i18n": "npm run build:i18n && node scripts-dist/i18n-sync.js"
   },
