@@ -1,9 +1,10 @@
 {
-  "name": "clean-node-modules-cli",
+  "name": "@dplei/clean-node-modules-cli",
   "version": "1.1.3",
   "description": "A command-line tool to recursively delete all node_modules folders in the current directory and subdirectories.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "private": false,
   "files": [
     "dist"
   ],
@@ -51,11 +52,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lei-Plna/clean-node-modules.git"
+    "url": "https://github.com/dplei/clean-node-modules.git"
   },
   "bugs": {
-    "url": "https://github.com/Lei-Plna/clean-node-modules/issues"
+    "url": "https://github.com/dplei/clean-node-modules/issues"
   },
-  "homepage": "https://github.com/Lei-Plna/clean-node-modules#readme",
-  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
+  "readme": "README.md",
+  "homepage": "https://github.com/dplei/clean-node-modules#readme",
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
