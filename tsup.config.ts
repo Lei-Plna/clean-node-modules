@@ -14,5 +14,8 @@ export default defineConfig({
   onSuccess: async () => {
     extra.copySync('src/locales', 'dist/locales');
     console.log(chalk.green('✅ locales copied to dist/locales'));
+  },
+  banner: {
+    js: '#!/usr/bin/env node'
   }
 });
