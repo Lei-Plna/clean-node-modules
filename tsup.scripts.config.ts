@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['scripts/i18n-sync.ts'],
+  entry: ['scripts/*.ts'],
   outDir: 'scripts-dist',
   format: ['cjs'],
   platform: 'node',
